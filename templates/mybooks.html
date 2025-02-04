@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}My Books - Book Swap{% endblock %}
+{% block body %}
+  <h2>My Books</h2>
+  {% if books %}
+    <ul class="list-group">
+      {% for book in books %}
+        <li class="list-group-item">
+          <strong>{{ book.title }}</strong> by {{ book.author }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You haven't added any books yet.</p>
+  {% endif %}
+  <p><a href="{{ url_for('addbook') }}">Add a new book</a></p>
+{% endblock %}
